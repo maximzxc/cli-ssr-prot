@@ -10,7 +10,7 @@ module.exports = {
     server: './server.ts'
   },
   target: 'node',
-  resolve: { extensions: ['.ts', '.js'] },
+  resolve: { extensions: ['.ts', '.coffee', '.js'] },
   optimization: {
     minimize: false
   },
@@ -28,6 +28,7 @@ module.exports = {
         test: /(\\|\/)@angular(\\|\/)core(\\|\/).+\.js$/,
         parser: { system: true },
       },
+      { test: /\.coffee$/, loader: 'coffee-loader' },
     ]
   },
   plugins: [

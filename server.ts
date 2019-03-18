@@ -8,6 +8,9 @@ import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 import * as express from 'express';
 import {join} from 'path';
 
+import * as domino from 'domino';
+import * as fs from 'fs';
+
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -16,6 +19,43 @@ const app = express();
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist/browser');
+
+const template = fs.readFileSync('./dist/browser/index.html').toString();
+const win = domino.createWindow(template);
+
+global['window'] = win;
+global['navigator'] = win.navigator;
+global['document'] = win.document;
+global['CSS'] = null;
+global['atob'] = (base64: string) => {
+  return Buffer.from(base64, 'base64').toString();
+};
+
+Object.defineProperty(win.document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  },
+});
+
+Object.defineProperty(win.document.body.style, 'z-index', {
+  value: () => {
+      return {
+          enumerable: true,
+          configurable: true
+      };
+  },
+});
+
+function setDomTypes() {
+  // Make all Domino types available as types in the global env.
+  Object.assign(global, domino['impl']);
+  (global as any)['KeyboardEvent'] = domino['impl'].Event;
+}
+
+setDomTypes();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main');
