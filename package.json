@@ -11,7 +11,9 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run cli-ssr-prot:server:production"
+    "build:client-and-server-bundles": "ng build --prod && ng run cli-ssr-prot:server:production",
+	"deploy": "cd dist/browser && now --force --public && now --target production && now remove cli-ssr-prot --safe --yes",
+    "push": "npm run build && npm run deploy"
   },
   "private": true,
   "dependencies": {
