@@ -9,7 +9,6 @@ import { StartupService } from './startup.service';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { MyDirective } from './coffee_app/my-directive';
 
 export function startupServiceFactory(startupService: StartupService): Function {
     return () => startupService.load();
@@ -33,7 +32,6 @@ export class MyExampleDirective extends UpgradeComponent {
   declarations: [
     AppComponent,
     HomeComponent,
-    MyDirective,
     MyExampleDirective,
   ],
   imports: [

@@ -5,7 +5,6 @@ import { UpgradeModule } from '@angular/upgrade/static';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import './app/coffee_app/my-directive.js';
 
 import {setAngularLib} from '@angular/upgrade/static';
 import angular from 'angular';
