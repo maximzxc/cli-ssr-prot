@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StartupService } from './startup.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 export function startupServiceFactory(startupService: StartupService): Function {
     return () => startupService.load();
@@ -13,7 +14,8 @@ export function startupServiceFactory(startupService: StartupService): Function 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     HttpClientModule,
