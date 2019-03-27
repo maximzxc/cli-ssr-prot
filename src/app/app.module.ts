@@ -1,9 +1,13 @@
+declare var angular: angular.IAngularStatic;
+// import * as angular from "angular";
+
+
+//declare var angular: any;
 import { BrowserModule } from '@angular/platform-browser';
 import { downgradeComponent, setAngularJSGlobal, UpgradeComponent, UpgradeModule } from '@angular/upgrade/static';
 import { Directive, ElementRef, Injector, NgModule, APP_INITIALIZER } from '@angular/core';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
-import angular from 'angular';
 
 import { StartupService } from './startup.service';
 import { RouterModule } from '@angular/router';

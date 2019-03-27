@@ -1,3 +1,7 @@
+// declare var angular: angular.IAngularStatic;
+// import * as angular from "angular";
+
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Router } from '@angular/router';
@@ -7,9 +11,8 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 import {setAngularLib} from '@angular/upgrade/static';
-import angular from 'angular';
 
-setAngularLib(angular);
+// setAngularLib(angular);
 
 
 if (environment.production) {
