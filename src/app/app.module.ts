@@ -1,5 +1,7 @@
-declare var angular: angular.IAngularStatic;
-// import * as angular from "angular";
+//declare var angular: angular.IAngularStatic;
+//declare var angular: any;
+//import * as angular from "angular";
+//import {} from "@types/angular";
 
 
 //declare var angular: any;
