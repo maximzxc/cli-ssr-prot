@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StartupService } from './startup.service';
+import { XStartupService } from './x.startup.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { StartupService } from './startup.service';
 export class AppComponent implements OnInit {
   title = 'cli-ssr-prot';
 
-  constructor(private startup: StartupService ) { }
+  constructor(private startup: XStartupService ) { }
 
   ngOnInit() {
     /*

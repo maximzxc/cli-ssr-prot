@@ -3,12 +3,18 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { StartupService } from './startup.service';
+import { XStartupService } from './x.startup.service';
+import { YStartupService } from './y.startup.service';
 import { AppRoutingModule } from './app-routing.module';
+import { AModule} from './a/a.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-export function startupServiceFactory(startupService: StartupService): Function {
+export function startupXServiceFactory(startupService: XStartupService): Function {
+    return () => startupService.load();
+}
+
+export function startupYServiceFactory(startupService: YStartupService): Function {
     return () => startupService.load();
 }
 
@@ -21,14 +27,22 @@ export function startupServiceFactory(startupService: StartupService): Function 
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    AModule,
     TransferHttpCacheModule
   ],
   providers: [
-    StartupService,
+    XStartupService,
+    YStartupService,
     {
       provide: APP_INITIALIZER,
-      useFactory: startupServiceFactory,
-      deps: [StartupService],
+      useFactory: startupXServiceFactory,
+      deps: [XStartupService],
+      multi: true
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: startupYServiceFactory,
+      deps: [YStartupService],
       multi: true
     }
   ],

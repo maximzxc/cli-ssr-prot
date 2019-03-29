@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-//import { Http, Response } from '@angular/http';
 import {HttpClient} from "@angular/common/http";
 
 declare var require: any;
 const { map, toPromise } = require('rxjs/operators');
 
 @Injectable()
-export class StartupService {
+export class XStartupService {
 
     private _startupData: any;
 
