@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { XStartupService } from './x.startup.service';
 import { YStartupService } from './y.startup.service';
 import { AppRoutingModule } from './app-routing.module';
-import { AModule} from './a/a.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
@@ -27,7 +26,6 @@ export function startupYServiceFactory(startupService: YStartupService): Functio
     HttpClientModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
-    AModule,
     TransferHttpCacheModule
   ],
   providers: [
