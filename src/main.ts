@@ -9,9 +9,9 @@ if (environment.production) {
 }
 
 if (environment.production) {
-    document.write(`<script>window.liveConfigForMain = {"environment":"prod"`}
+    document.write(`<script>window.liveConfigForMain = {"environment":"prod"}</script>`);
 } else {
-    document.write(`<script>window.liveConfigForMain = {"environment":"local"`}
+    document.write(`<script>window.liveConfigForMain = {"environment":"local"}</script>`);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
