@@ -8,6 +8,12 @@ if (environment.production) {
   enableProdMode();
 }
 
+if (environment.production) {
+    document.write(`<script>window.liveConfigForMain = {"environment":"prod"`}
+} else {
+    document.write(`<script>window.liveConfigForMain = {"environment":"local"`}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
