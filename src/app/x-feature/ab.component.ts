@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {OnInit, Component} from '@angular/core';
+import { XStartupService } from './../x.startup.service';
 
 @Component({
   selector: 'app-ab-view',
@@ -10,4 +11,11 @@ import {Component} from '@angular/core';
     <app-b-view></app-b-view>
     `
 })
-export class ABComponent {}
+export class ABComponent implements OnInit {
+  constructor(private startup: XStartupService ) { }
+
+  ngOnInit() {
+    console.log("Hey I'm component AB")
+    console.log(this.startup.startupData)
+  }
+}
